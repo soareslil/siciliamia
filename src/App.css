@@ -1,0 +1,157 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+}
+
+.header{
+  background-color: rgba(240, 128, 128, 0.559);
+}
+
+.logo{
+  width: 100px;
+  padding: 10px;
+  border-radius: 20px;
+}
+
+.header-nav{
+  /* border: 2px solid orange; */
+  display: flex;
+  justify-content: space-between;
+}
+
+.home-p{
+  /* border: 2px solid blue;  */
+  width: 60%;
+  display: flex;
+  justify-content: space-between;
+  padding: 25px;
+  align-items: center;
+}
+
+.allItems{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+}
+
+.sec1-body{
+  /* border: 3px solid black; */
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 100px;
+}
+
+.form{
+  border: 1px solid black;
+  border-radius: 10px;
+  width: 120%;
+  height:50%;
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.form-btn{
+  width: 100px;
+  text-align: center;
+  height: 40px;
+  border: 1px solid;
+  border-radius: 10px;
+}
+
+.footer{
+  background-color: rgba(240, 128, 128, 0.559);
+  display:flex;
+}
+
+.footer-nav{
+  display:flex;
+  /* border: 3px solid orange; */
+  width: 100%;
+  justify-content: space-between;
+}
+
+.socialMedia{
+  /* border: 3px solid red; */
+  display: flex;
+  justify-content: center;
+  width: 90px;
+  flex-direction: column;
+  align-items: center;
+  margin-right: 30px;
+}
+
+.links a {
+  text-decoration: none;
+  color: black;
+}
+
+.errorMsg{
+  color: red;
+}
+
+.cardInfo{
+  border: 2px solid lightgrey;
+  border-radius: 10px 50px 10px 50px;
+  text-align: center;
+  width: 96%;
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  margin-bottom: 70px;
+  background-color: rgba(220, 168, 149, 0.735);
+}
+
+@media (min-width: 1000px){
+
+  .header-nav{
+    padding-right: 30px;
+  }
+  .home-p{
+    border: none;
+    width: 30%;
+  }
+
+  .home-p p{
+    cursor:pointer;
+  }
+
+  .home-p p:hover{
+    border: 1px solid white;
+    padding: 10px;
+  }
+
+  .form{
+    width: 30%;
+    height:100px;
+  }
+
+  .form-btn:hover{
+    color: lightcoral;
+    cursor:pointer;
+  }
+
+  .socialMedia{
+    margin-right: 30px;
+  }
+
+  .cardInfo{
+    background-color: rgba(240, 128, 128, 0.559);
+    width: 30%;
+    border-radius: 5px 70px 5px 70px;
+  }
+
+  .errorMsg{
+    color: red;
+  }
+}
