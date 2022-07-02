@@ -17,7 +17,6 @@
 }
 
 .header-nav{
-  /* border: 2px solid orange; */
   display: flex;
   justify-content: space-between;
 }
@@ -73,13 +72,11 @@
 
 .footer-nav{
   display:flex;
-  /* border: 3px solid orange; */
   width: 100%;
   justify-content: space-between;
 }
 
 .socialMedia{
-  /* border: 3px solid red; */
   display: flex;
   justify-content: center;
   width: 90px;
