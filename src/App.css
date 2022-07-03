@@ -1,152 +1,107 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
-*{
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+* {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
 }
 
-.header{
-  background-color: rgba(240, 128, 128, 0.559);
-}
-
-.logo{
-  width: 100px;
-  padding: 10px;
-  border-radius: 20px;
-}
-
-.header-nav{
+.header {
   display: flex;
-  justify-content: space-between;
-}
-
-.home-p{
-  width: 60%;
-  display: flex;
-  justify-content: space-between;
-  padding: 25px;
-  align-items: center;
-}
-
-.allItems{
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  align-items: center;
-  height: 100%;
-}
-
-.sec1-body{
+  flex-direction: row;
   width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 100px;
 }
 
-.form{
-  border: 1px solid black;
-  border-radius: 10px;
-  width: 120%;
-  height:50%;
-  display:flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-around;
-}
-
-.form-btn{
+.logo {
   width: 100px;
-  text-align: center;
-  height: 40px;
-  border: 1px solid;
-  border-radius: 10px;
 }
 
-.footer{
-  background-color: rgba(240, 128, 128, 0.559);
-  display:flex;
+.logo-footer {
+  width: 70px;
 }
 
-.footer-nav{
-  display:flex;
-  width: 100%;
+.header-nav {
+  display: flex;
+  flex-direction: row;
+  width: 130px;
+  align-items: center;
+  margin-left: 30px !important;
   justify-content: space-between;
 }
 
-.socialMedia{
-  display: flex;
-  justify-content: center;
-  width: 90px;
-  flex-direction: column;
-  align-items: center;
-  margin-right: 30px;
+.header-nav p {
+  font-weight: bold;
+  color: #d28f68;
 }
 
-.links a {
-  text-decoration: none;
-  color: black;
+.allItems {
+  width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 
-.errorMsg{
-  color: red;
-}
-
-.cardInfo{
-  border: 2px solid lightgrey;
-  border-radius: 10px 50px 10px 50px;
-  text-align: center;
-  width: 96%;
+.form {
   height: 200px;
   display: flex;
   flex-direction: column;
+  gap: 10px;
+  width: 50%;
+  justify-content: center;
+}
+
+.form-btn {
+  background-color: #d28f68;
+  margin-top: 10px !important;
+  color: #fff;
+  padding: 10px;
+  border: none !important;
+  border-radius: 20px;
+}
+
+.cardInfo{
+  border-radius: 10px 50px 10px 50px;
+  text-align: center;
+  color: #fff;
+  padding: 30px !important;
+  gap: 10px;
+  display: flex;
+  flex-direction: column;
   justify-content: space-around;
-  margin-bottom: 70px;
   background-color: rgba(220, 168, 149, 0.735);
 }
 
-@media (min-width: 1000px){
+.footer-nav {
+  width: 100%;
+  padding-top: 20px !important;
+  padding-bottom: 20px !important;
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  position: absolute;
+  bottom: 0;
+}
 
-  .header-nav{
-    padding-right: 30px;
-  }
-  .home-p{
-    border: none;
-    width: 30%;
-  }
+.socialMedia {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
 
-  .home-p p{
-    cursor:pointer;
-  }
+.links a {
+  color: black;
+  width: 40px;
+}
 
-  .home-p p:hover{
-    border: 1px solid white;
-    padding: 10px;
-  }
+.errorMsg {
+  color: red;
+  text-align: center;
+}
 
-  .form{
-    width: 30%;
-    height:100px;
-  }
 
-  .form-btn:hover{
-    color: lightcoral;
-    cursor:pointer;
-  }
-
-  .socialMedia{
-    margin-right: 30px;
-  }
-
-  .cardInfo{
-    background-color: rgba(240, 128, 128, 0.559);
-    width: 30%;
-    border-radius: 5px 70px 5px 70px;
-  }
-
-  .errorMsg{
-    color: red;
+@media (min-width: 760px) {
+  .form {
+    width: 370px;
   }
 }

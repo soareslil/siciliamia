@@ -57,7 +57,6 @@ function MyForm() {
 
   return (
     <section className="allItems">
-      <section className="sec1-body">
         <form className="form">
           <label className="form-label">Enter your API name:</label>
           <input
@@ -72,7 +71,6 @@ function MyForm() {
           </button>
           {showError && <div className="errorMsg">{alertMsg}</div>}
         </form>
-      </section>
       {name !== "" && (
         <div className="cardInfo">
           <p> API NAME: {name}</p>

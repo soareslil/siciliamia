@@ -7,9 +7,8 @@ import WebIcon from '@mui/icons-material/Web';
 function Footer() {
 
     return (
-        <div className="footer">
         <nav className="footer-nav">
-            <img src={logo} alt="img logo" className="logo"/>
+            <img src={logo} alt="img logo" className="logo-footer"/>
             <div className="socialMedia">
                 <p>Follow us</p>
             <div className="links">
@@ -18,7 +17,6 @@ function Footer() {
             </div>
             </div>
         </nav>
-        </div>
     )
 }
 
