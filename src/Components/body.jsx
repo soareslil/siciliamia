@@ -13,7 +13,7 @@ function MyForm() {
 
   useEffect(() => {
     console.log('oia',name);
-   if(name !== ""){
+   if(name !== "" && showError === false){
     fetch("https://back-siciliamia.herokuapp.com/api/add", {
       method: "POST",
       headers: {
