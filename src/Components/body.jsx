@@ -10,25 +10,27 @@ function MyForm() {
   const [category, setCategory] = useState("");
   const [alertMsg, setAlertMsg] = useState("");
   const [showError, setShowError] = useState(false);
+  const [showLoading, setShowLoading] = useState(false);
 
   useEffect(() => {
-   if(name !== "" && showError === false){
-    fetch("https://back-siciliamia.herokuapp.com/api/add", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        name: name,
-        description: description,
-        link: link,
-        category: category,
-      }),
-    }).catch((error) => {
-      window.alert(error);
-      return;
-    });
-   } 
+    if (name !== "" && !showError) {
+      fetch("https://back-siciliamia.herokuapp.com/api/add", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name: name,
+          description: description,
+          link: link,
+          category: category,
+        }),
+      })
+      .catch((error) => {
+        window.alert(error);
+        return;
+      });
+    }
   }, [name, description, link, category, showError]);
 
   const api = axios.create({
@@ -43,6 +45,7 @@ function MyForm() {
           (element) => element.API === searchTxt
         );
         setShowError(false);
+        setShowLoading(false);
         setName(result.API);
         setDescription(result.Description);
         setLink(result.Link);
@@ -50,6 +53,7 @@ function MyForm() {
       })
       .catch(function (error) {
         setShowError(true);
+        setShowLoading(false);
         if (
           error.message ===
           "Cannot read properties of undefined (reading 'API')"
@@ -69,12 +73,19 @@ function MyForm() {
             setSearchTxt(e.target.value);
           }}
         />
-        <button type="button" className="form-btn" onClick={getApi}>
+        <button type="button" className="form-btn" onClick={() => {
+          getApi();
+          setShowLoading(true);
+        }}>
           Search
         </button>
         {showError && <div className="errorMsg">{alertMsg}</div>}
       </form>
-      {name !== "" && (
+      {showLoading && (
+          <p> LOADING ....</p>
+      )}
+{ name !== "" ?? setShowLoading(false)}
+      {name !== "" && !showError && (
         <div className="cardInfo">
           <p> API NAME: {name}</p>
           <p>DESCRIPTION: {description}</p>
