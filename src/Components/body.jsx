@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "../App.css";
 import axios from "axios";
 
@@ -11,12 +11,32 @@ function MyForm() {
   const [alertMsg, setAlertMsg] = useState("");
   const [showError, setShowError] = useState(false);
 
+  useEffect(() => {
+    console.log('oia',name);
+   if(name !== ""){
+    fetch("https://back-siciliamia.herokuapp.com/api/add", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        name: name,
+        description: description,
+        link: link,
+        category: category,
+      }),
+    }).catch((error) => {
+      window.alert(error);
+      return;
+    });
+   } 
+  }, [name, description, link, category]);
+
   const api = axios.create({
     baseURL: "https://api.publicapis.org",
   });
 
   async function getApi() {
-    console.log(searchTxt);
     api
       .get("/entries")
       .then(function ({ data }) {
@@ -38,39 +58,39 @@ function MyForm() {
           setAlertMsg("API not found!");
       });
 
-    await fetch("http://localhost:5000/api/add", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        name: name,
-        description: description,
-        link: link,
-        category: category,
-      }),
-    }).catch((error) => {
-      window.alert(error);
-      return;
-    });
+    // await fetch("http://localhost:5000/api/add", {
+    //   method: "POST",
+    //   headers: {
+    //     "Content-Type": "application/json",
+    //   },
+    //   body: JSON.stringify({
+    //     name: name,
+    //     description: description,
+    //     link: link,
+    //     category: category,
+    //   }),
+    // }).catch((error) => {
+    //   window.alert(error);
+    //   return;
+    // });
   }
 
   return (
     <section className="allItems">
-        <form className="form">
-          <label className="form-label">Enter your API name:</label>
-          <input
-            type="text"
-            className="form-inputTxt"
-            onChange={(e) => {
-              setSearchTxt(e.target.value);
-            }}
-          />
-          <button type="button" className="form-btn" onClick={getApi}>
-            Search
-          </button>
-          {showError && <div className="errorMsg">{alertMsg}</div>}
-        </form>
+      <form className="form">
+        <label className="form-label">Enter your API name:</label>
+        <input
+          type="text"
+          className="form-inputTxt"
+          onChange={(e) => {
+            setSearchTxt(e.target.value);
+          }}
+        />
+        <button type="button" className="form-btn" onClick={getApi}>
+          Search
+        </button>
+        {showError && <div className="errorMsg">{alertMsg}</div>}
+      </form>
       {name !== "" && (
         <div className="cardInfo">
           <p> API NAME: {name}</p>
