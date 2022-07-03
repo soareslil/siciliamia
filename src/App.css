@@ -104,4 +104,8 @@
   .form {
     width: 370px;
   }
+
+  .form-btn:hover{
+    cursor: pointer;
+  }
 }
