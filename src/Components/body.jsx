@@ -12,7 +12,6 @@ function MyForm() {
   const [showError, setShowError] = useState(false);
 
   useEffect(() => {
-    console.log('oia',name);
    if(name !== "" && showError === false){
     fetch("https://back-siciliamia.herokuapp.com/api/add", {
       method: "POST",
@@ -30,7 +29,7 @@ function MyForm() {
       return;
     });
    } 
-  }, [name, description, link, category]);
+  }, [name, description, link, category, showError]);
 
   const api = axios.create({
     baseURL: "https://api.publicapis.org",
@@ -57,22 +56,6 @@ function MyForm() {
         )
           setAlertMsg("API not found!");
       });
-
-    // await fetch("http://localhost:5000/api/add", {
-    //   method: "POST",
-    //   headers: {
-    //     "Content-Type": "application/json",
-    //   },
-    //   body: JSON.stringify({
-    //     name: name,
-    //     description: description,
-    //     link: link,
-    //     category: category,
-    //   }),
-    // }).catch((error) => {
-    //   window.alert(error);
-    //   return;
-    // });
   }
 
   return (
